@@ -1,1 +1,2 @@
-python hello world
+#python hello world
+#basic python features
