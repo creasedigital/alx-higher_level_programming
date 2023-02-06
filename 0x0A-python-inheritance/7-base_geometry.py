@@ -1,30 +1,31 @@
 #!/usr/bin/python3
+""" 0x0A. Python - Inheritance, task 7 """
 
 
 class BaseGeometry:
-    """BaseGeometry class with area method"""
+    """Intentionally empty area() method.
+
+    """
     def area(self):
-        """Area method not implemented"""
-        raise Exception("area() is not implemented")
+        """Unimplemented, only raises exception to notify user.
+
+        """
+        raise Exception('area() is not implemented')
 
     def integer_validator(self, name, value):
-        """integer validator
+        """Input filtration for integers: checks if value is an int above 0.
+        No use of self, could be staticmethod.
+
         Args:
-            name (str): name
-            value (int): integer value
-        Raises:
-            TypeError: if value is not an integer
-            ValueError: if value is less than 1
+            name (str): name bound to object
+            value (any): value of object, expecting int
+
+        Exceptions:
+            TypeError: if `value` is not an int
+            ValueError: if `value` is less than or equal to 0
+
         """
-        if type(value) is not int:
-            raise TypeError("{:s} must be an integer".format(name))
+        if type(value) != int:
+            raise TypeError('{} must be an integer'.format(name))
         if value <= 0:
-            raise ValueError("{:s} must be greater than 0".format(name))
-
-if __name__ == '__main__':
-    bg = BaseGeometry()
-
-    bg.integer_validator("my_int", 12)
-    bg.integer_validator("width", 89)
-
-    bg.area()
+            raise ValueError('{} must be greater than 0'.format(name))
